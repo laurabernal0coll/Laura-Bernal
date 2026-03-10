@@ -1,0 +1,251 @@
+Ir al contenido principal
+Google Classroom
+Classroom
+PROGRAMACION WEB
+Tablón
+Trabajo de clase
+Personas
+Tablón
+PROGRAMACION WEB
+Meet
+Próximas entregas
+¡Yuju! ¡No tienes que entregar nada pronto!
+
+Publicado por MEDINA DUARTE BRAYAN FELIPE
+MEDINA DUARTE BRAYAN FELIPE
+Fecha de creación: 19:2419:24
+Repaso Parcial:
+
+
+Fecha de parcial 09/03/2026
+preguntasweb.html
+HTML
+
+preguntaswebabiertas.html
+HTML
+
+Tarea: "Taller 2"
+MEDINA DUARTE BRAYAN FELIPE ha publicado una nueva tarea: Taller 2
+Fecha de creación: 23 feb23 feb
+
+Publicado por MEDINA DUARTE BRAYAN FELIPE
+MEDINA DUARTE BRAYAN FELIPE
+Fecha de creación: 17 feb17 feb
+Repositorio PHP Explicación
+GitHub - brayanmedina-lab/php-ia
+https://github.com/brayanmedina-lab/php-ia
+
+1 comentario de clase
+
+SEBASTIAN GELVEZ BOHADA • 17 feb
+https://github.com/SebastianLTM/LTM
+
+Añade un comentario de clase…
+
+
+Publicado por MEDINA DUARTE BRAYAN FELIPE
+MEDINA DUARTE BRAYAN FELIPE
+Fecha de creación: 16 feb16 feb
+Semana 2 Encuesta para diagnostico de Proyectos
+Google Forms: Sign-in
+https://docs.google.com/forms/d/e/1FAIpQLSc3KlEqUB3cUzIm0Tnuzg16lLhlsL04TQSl0ymG9tAr-_ohXw/viewform?usp=dialog
+
+
+Publicado por MEDINA DUARTE BRAYAN FELIPE
+MEDINA DUARTE BRAYAN FELIPE
+Fecha de creación: 16 feb16 feb
+Semana 1 Documentos vistos en Clase
+Explicación WEB.pdf
+PDF
+
+WEB BASICA.pdf
+PDF
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso Técnico: Programación de Sistemas</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .quiz-container {
+            width: 90%;
+            max-width: 650px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 { color: var(--primary-color); font-size: 1.5rem; margin-bottom: 25px; }
+
+        .question-box {
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #34495e;
+            line-height: 1.4;
+        }
+
+        .answer-box {
+            display: none;
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-color);
+            margin-top: 20px;
+            text-align: left;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-reveal { background: var(--accent-color); color: white; width: 100%; margin-top: 10px; }
+        .btn-nav { background: var(--primary-color); color: white; flex: 1; }
+        button:hover { opacity: 0.9; }
+        button:disabled { background: #bdc3c7; cursor: not-allowed; }
+
+        .progress { color: #7f8c8d; font-size: 0.9rem; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div class="progress" id="progressText">Pregunta 1 de 10</div>
+    <h1>Repaso de Conceptos Base</h1>
+
+    <div class="question-box">
+        <div class="question-text" id="questionText">Cargando pregunta...</div>
+    </div>
+
+    <button class="btn-reveal" id="revealBtn" onclick="revealAnswer()">Revelar Respuesta Correcta</button>
+
+    <div class="answer-box" id="answerBox">
+        <strong>Respuesta sugerida:</strong><br>
+        <span id="answerText"></span>
+    </div>
+
+    <div class="controls">
+        <button class="btn-nav" id="prevBtn" onclick="changeQuestion(-1)" disabled>Anterior</button>
+        <button class="btn-nav" id="nextBtn" onclick="changeQuestion(1)">Siguiente</button>
+    </div>
+</div>
+
+<script>
+    const questions = [
+        {
+            q: "¿Cuál es la diferencia entre una etiqueta de estructura (como <header>) y una de contenido (como <p>)?",
+            a: "Las de estructura organizan las secciones de la página (el 'esqueleto'), mientras que las de contenido muestran la información real (textos o imágenes) dentro de esas secciones."
+        },
+        {
+            q: "En el modelo Cliente-Servidor, ¿qué sucede cuando escribes una URL y das Enter?",
+            a: "El navegador (cliente) envía una petición al servidor; el servidor busca los archivos y se los envía de vuelta al navegador para que los muestre."
+        },
+        {
+            q: "¿Por qué es mejor usar un archivo CSS externo en lugar de escribir el color en cada etiqueta?",
+            a: "Porque permite cambiar el diseño de todo el sitio desde un solo lugar, ahorrando tiempo y manteniendo el código ordenado."
+        },
+        {
+            q: "¿Para qué sirve el atributo 'src' en una etiqueta <img>?",
+            a: "Indica la ruta o dirección donde está guardado el archivo de imagen. Si la ruta está mal, la imagen no se cargará."
+        },
+        {
+            q: "En una arquitectura de tres capas, ¿cuál es la función de la Capa de Datos?",
+            a: "Su función es guardar y organizar toda la información (como una biblioteca) para que el sistema pueda consultarla o modificarla cuando sea necesario."
+        },
+        {
+            q: "¿Cuál es la diferencia entre una Clase (.clase) y un ID (#id) en CSS?",
+            a: "Una clase se puede repetir en muchos elementos, pero un ID es un nombre único que solo debe usarse una vez en toda la página."
+        },
+        {
+            q: "¿Por qué es importante usar la etiqueta <nav> para los menús?",
+            a: "Porque hace que el código sea más claro para otros programadores y ayuda a las herramientas de accesibilidad a entender dónde están los enlaces de navegación."
+        },
+        {
+            q: "¿Para qué sirve el atributo 'placeholder' en un cuadro de texto?",
+            a: "Muestra un texto de guía dentro del cuadro (como 'Escribe aquí') que se borra solo cuando el usuario empieza a escribir."
+        },
+        {
+            q: "Explica con tus palabras qué es un Sitio Web Estático.",
+            a: "Es una página donde la información no cambia según el usuario; todos ven el mismo contenido porque no hay conexión con una base de datos en tiempo real."
+        },
+        {
+            q: "¿Qué es la Estructura Lógica de Directorios y por qué ser ordenado?",
+            a: "Es la organización de carpetas del proyecto. Ser ordenado evita que se pierdan archivos y permite que las rutas (links) entre ellos funcionen bien."
+        }
+    ];
+
+    let currentIdx = 0;
+
+    function displayQuestion() {
+        const q = questions[currentIdx];
+        document.getElementById('questionText').textContent = q.q;
+        document.getElementById('answerText').textContent = q.a;
+        document.getElementById('answerBox').style.display = 'none';
+        document.getElementById('progressText').textContent = `Pregunta ${currentIdx + 1} de ${questions.length}`;
+        
+        document.getElementById('prevBtn').disabled = currentIdx === 0;
+        document.getElementById('nextBtn').disabled = currentIdx === questions.length - 1;
+    }
+
+    function revealAnswer() {
+        document.getElementById('answerBox').style.display = 'block';
+    }
+
+    function changeQuestion(step) {
+        currentIdx += step;
+        displayQuestion();
+    }
+
+    // Iniciar
+    displayQuestion();
+</script>
+
+</body>
+</html>
+preguntaswebabiertas.html
+Mostrando preguntaswebabiertas.html.
